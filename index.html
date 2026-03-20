@@ -23,6 +23,8 @@
                 </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#involved">Get Involved</a></li>
                     <li><a href="#contact">Stay Connected</a></li>
                 </ul>
             </div>
@@ -34,9 +36,91 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Ennis Tidy Towns</h1>
-                    <p class="hero-subtitle">Working together to keep Ennis beautiful, clean, and green</p>
-                    <div class="coming-soon">Website Coming Soon</div>
+                    <p class="hero-subtitle">Make your place a better place</p>
                     <p class="hero-description">We're a volunteer-led community group dedicated to enhancing and maintaining the beauty, cleanliness, and environmental sustainability of Ennis, County Clare.</p>
+                    <div class="hero-cta-buttons">
+                        <button class="btn btn-primary" data-modal="join-modal">
+                            <i class="fas fa-user-plus"></i>
+                            Join Us
+                        </button>
+                        <button class="btn btn-secondary" data-modal="about-modal">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Ennis Tidy Towns</h2>
+                <div class="content about-content">
+                    <p class="lead-text">Ennis Tidy Towns is committed to creating a cleaner, greener, more vibrant community for everyone who lives, works, and visits our beautiful town.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-card clickable" data-modal="environment-modal">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Environmental Care</h3>
+                            <p>We work to enhance and protect our natural environment, promoting sustainable practices and biodiversity throughout Ennis.</p>
+                            <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <div class="info-card clickable" data-modal="community-modal">
+                            <i class="fas fa-users"></i>
+                            <h3>Community Action</h3>
+                            <p>Through volunteer-led initiatives, we bring people together to take pride in and care for our shared spaces.</p>
+                            <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <div class="info-card clickable" data-modal="sdg-modal">
+                            <i class="fas fa-globe"></i>
+                            <h3>UN Sustainable Goals</h3>
+                            <p>Tidy Towns groups are encouraged to integrate the UN Sustainable Development Goals into our objectives and activities.</p>
+                            <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="involved" class="section bg-light">
+            <div class="container">
+                <h2>Get Involved</h2>
+                <div class="content involved-content">
+                    <p class="lead-text">Every helping hand makes a difference. Join us in making Ennis a better place for all.</p>
+                    
+                    <div class="involved-ways">
+                        <div class="involved-item clickable" data-modal="volunteer-modal">
+                            <i class="fas fa-hands-helping"></i>
+                            <h3>Volunteer</h3>
+                            <p>Join our regular clean-up events and community projects</p>
+                            <span class="card-link">Find out how <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <div class="involved-item clickable" data-modal="greenspaces-modal">
+                            <i class="fas fa-seedling"></i>
+                            <h3>Green Spaces</h3>
+                            <p>Help maintain our parks, gardens, and public areas</p>
+                            <span class="card-link">Get started <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <div class="involved-item clickable" data-modal="sustainability-modal">
+                            <i class="fas fa-recycle"></i>
+                            <h3>Sustainability</h3>
+                            <p>Support our recycling and environmental initiatives</p>
+                            <span class="card-link">Learn more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <div class="involved-item clickable" data-modal="beautification-modal">
+                            <i class="fas fa-paint-brush"></i>
+                            <h3>Beautification</h3>
+                            <p>Get creative with planting, painting, and decorating projects</p>
+                            <span class="card-link">Explore projects <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-button-wrapper">
+                        <button class="btn btn-large btn-primary" data-modal="join-modal">
+                            <i class="fas fa-user-plus"></i>
+                            Join Ennis Tidy Towns Today
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -68,6 +152,405 @@
             <p>Working together for a cleaner, greener Ennis</p>
         </div>
     </footer>
+
+    <!-- Modals -->
+    <!-- Join Modal -->
+    <div id="join-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-user-plus modal-icon"></i>
+                <h2>Join Ennis Tidy Towns</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">We'd love to have you as part of our community! There are many ways to get involved, and every contribution matters.</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-heart"></i> Why Join?</h3>
+                    <ul>
+                        <li>Make a real, visible difference in your community</li>
+                        <li>Meet like-minded neighbors and make new friends</li>
+                        <li>Contribute to environmental sustainability</li>
+                        <li>Learn new skills in gardening, conservation, and community organizing</li>
+                        <li>Be part of a national movement making places better across Ireland</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-calendar-check"></i> Ways to Participate</h3>
+                    <ul>
+                        <li><strong>Clean-Up Days:</strong> Join our regular litter picks and clean-up events</li>
+                        <li><strong>Planting Projects:</strong> Help create beautiful floral displays and green spaces</li>
+                        <li><strong>Committee Meetings:</strong> Share ideas and help plan initiatives</li>
+                        <li><strong>Special Projects:</strong> Get involved in painting, recycling drives, and more</li>
+                        <li><strong>Occasional Help:</strong> Even a few hours makes a difference!</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-envelope"></i> Get Started</h3>
+                    <p>Connect with us on social media to stay informed about upcoming events and volunteer opportunities:</p>
+                    <div class="modal-social-links">
+                        <a href="https://www.facebook.com/EnnisTidyTowns/" target="_blank" rel="noopener noreferrer" class="modal-social-btn">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/ennistidytowns/" target="_blank" rel="noopener noreferrer" class="modal-social-btn">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </div>
+                    <p class="modal-note">Email contact information coming soon!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div id="about-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-info-circle modal-icon"></i>
+                <h2>About Ennis Tidy Towns</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Ennis Tidy Towns is part of a nationwide community-based competition and movement in Ireland that encourages communities to improve their local environment and make their towns and villages better places to live, work, and visit.</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-trophy"></i> The Tidy Towns Movement</h3>
+                    <p>The SuperValu TidyTowns competition has been running since 1958, making it one of the longest-running environmental initiatives in Ireland. It celebrates community involvement, environmental awareness, and the work that local groups put into improving their areas.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                    <p>Ennis Tidy Towns works year-round to:</p>
+                    <ul>
+                        <li>Keep our town clean, litter-free, and welcoming</li>
+                        <li>Create and maintain beautiful floral displays and green spaces</li>
+                        <li>Promote environmental sustainability and biodiversity</li>
+                        <li>Preserve and enhance our built heritage</li>
+                        <li>Foster community pride and civic engagement</li>
+                        <li>Support the UN Sustainable Development Goals</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-users"></i> Community-Led</h3>
+                    <p>We're entirely volunteer-run, made up of local residents who care deeply about our town. Our work is only possible through the dedication, time, and energy of community members like you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UN SDG Modal -->
+    <div id="sdg-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-globe modal-icon"></i>
+                <h2>UN Sustainable Development Goals</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Tidy Towns groups across Ireland are encouraged to integrate the United Nations Sustainable Development Goals (SDGs) into their work, connecting local action to global objectives.</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-flag"></i> What are the SDGs?</h3>
+                    <p>The 17 Sustainable Development Goals are a universal call to action to end poverty, protect the planet, and ensure prosperity for all by 2030. They address global challenges including climate change, environmental degradation, inequality, and peace and justice.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-check-circle"></i> Relevant SDGs for Tidy Towns</h3>
+                    <p>Our work directly contributes to several key SDGs:</p>
+                    <ul>
+                        <li><strong>Goal 11:</strong> Sustainable Cities and Communities</li>
+                        <li><strong>Goal 12:</strong> Responsible Consumption and Production</li>
+                        <li><strong>Goal 13:</strong> Climate Action</li>
+                        <li><strong>Goal 14:</strong> Life Below Water</li>
+                        <li><strong>Goal 15:</strong> Life on Land</li>
+                        <li><strong>Goal 17:</strong> Partnerships for the Goals</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-hands-helping"></i> Local Action, Global Impact</h3>
+                    <p>By participating in Tidy Towns activities, you're not just improving Ennis—you're contributing to a worldwide movement for a more sustainable, equitable future. Every piece of litter picked up, every plant nurtured, and every community member engaged brings us closer to these ambitious goals.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Environment Modal -->
+    <div id="environment-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-leaf modal-icon"></i>
+                <h2>Environmental Care</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Environmental stewardship is at the heart of everything we do. We work to protect and enhance the natural beauty of Ennis for current and future generations.</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-seedling"></i> Biodiversity & Green Spaces</h3>
+                    <ul>
+                        <li>Creating pollinator-friendly plantings with native species</li>
+                        <li>Maintaining parks, gardens, and public green areas</li>
+                        <li>Supporting wildlife habitats throughout the town</li>
+                        <li>Encouraging sustainable landscaping practices</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-recycle"></i> Waste Reduction</h3>
+                    <ul>
+                        <li>Organizing regular litter picks and clean-up campaigns</li>
+                        <li>Promoting recycling and proper waste disposal</li>
+                        <li>Raising awareness about single-use plastics</li>
+                        <li>Supporting circular economy initiatives</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-water"></i> Water & Resource Conservation</h3>
+                    <ul>
+                        <li>Protecting local waterways from pollution</li>
+                        <li>Promoting water-wise gardening techniques</li>
+                        <li>Supporting sustainable resource use</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Modal -->
+    <div id="community-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-users modal-icon"></i>
+                <h2>Community Action</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Ennis Tidy Towns is powered by community spirit. Together, we're creating a town we can all be proud of.</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-hands-helping"></i> Volunteer-Led Initiatives</h3>
+                    <p>Everything we accomplish is thanks to volunteers who give their time and energy. Whether it's a few hours a month or weekly involvement, every contribution counts.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-calendar-alt"></i> Regular Activities</h3>
+                    <ul>
+                        <li>Monthly clean-up days</li>
+                        <li>Seasonal planting events</li>
+                        <li>Community meetings and planning sessions</li>
+                        <li>Educational workshops and talks</li>
+                        <li>Special projects and initiatives</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-heart"></i> Building Connection</h3>
+                    <p>Beyond beautifying Ennis, our work brings people together. Tidy Towns creates opportunities to:</p>
+                    <ul>
+                        <li>Meet neighbors and form lasting friendships</li>
+                        <li>Work alongside people of all ages and backgrounds</li>
+                        <li>Share skills and learn from each other</li>
+                        <li>Build a stronger sense of community pride</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volunteer Modal -->
+    <div id="volunteer-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-hands-helping modal-icon"></i>
+                <h2>Volunteer Opportunities</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Volunteering with Ennis Tidy Towns is flexible, rewarding, and fun! Choose how you'd like to help and join us when it suits you.</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-broom"></i> Clean-Up Events</h3>
+                    <p>Our regular clean-up days are the backbone of keeping Ennis litter-free. We provide all equipment—just bring your enthusiasm!</p>
+                    <ul>
+                        <li>Litter picks in public areas</li>
+                        <li>Street and pathway cleaning</li>
+                        <li>Seasonal deep cleans</li>
+                        <li>Usually 2-3 hours, all abilities welcome</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-tools"></i> Skills-Based Volunteering</h3>
+                    <p>Have particular skills? We can use them!</p>
+                    <ul>
+                        <li>Gardening and horticulture</li>
+                        <li>Painting and decorating</li>
+                        <li>Photography and social media</li>
+                        <li>Event planning and organization</li>
+                        <li>Grant writing and administration</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-clipboard-list"></i> How to Get Involved</h3>
+                    <p>Follow us on social media for announcements about upcoming volunteer days and events. No long-term commitment required—come along when you can!</p>
+                    <div class="modal-social-links">
+                        <a href="https://www.facebook.com/EnnisTidyTowns/" target="_blank" rel="noopener noreferrer" class="modal-social-btn">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/ennistidytowns/" target="_blank" rel="noopener noreferrer" class="modal-social-btn">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Green Spaces Modal -->
+    <div id="greenspaces-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-seedling modal-icon"></i>
+                <h2>Green Spaces & Planting</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Beautiful, well-maintained green spaces make Ennis a more pleasant, healthy place to live. Help us keep our town blooming!</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-flower"></i> What We Do</h3>
+                    <ul>
+                        <li>Maintain floral displays in planters throughout town</li>
+                        <li>Care for parks and public gardens</li>
+                        <li>Plant trees and native species</li>
+                        <li>Create pollinator-friendly habitats</li>
+                        <li>Seasonal planting and upkeep</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-user-check"></i> No Experience Needed</h3>
+                    <p>Whether you're a seasoned gardener or have never planted a seed, you're welcome! We provide guidance, tools, and all the plants you'll need.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-leaf"></i> Environmental Benefits</h3>
+                    <p>Our green spaces work contributes to:</p>
+                    <ul>
+                        <li>Supporting bees, butterflies, and other pollinators</li>
+                        <li>Improving air quality</li>
+                        <li>Reducing urban heat</li>
+                        <li>Providing habitat for wildlife</li>
+                        <li>Enhancing mental health and wellbeing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sustainability Modal -->
+    <div id="sustainability-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-recycle modal-icon"></i>
+                <h2>Sustainability Initiatives</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Creating a sustainable future for Ennis means reducing waste, conserving resources, and making environmentally conscious choices.</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-trash-alt"></i> Waste Reduction</h3>
+                    <ul>
+                        <li>Promoting the 3Rs: Reduce, Reuse, Recycle</li>
+                        <li>Organizing recycling drives</li>
+                        <li>Raising awareness about proper disposal</li>
+                        <li>Combating single-use plastics</li>
+                        <li>Supporting composting initiatives</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> Resource Conservation</h3>
+                    <ul>
+                        <li>Promoting energy efficiency</li>
+                        <li>Water conservation in public spaces</li>
+                        <li>Sustainable transport options</li>
+                        <li>Local sourcing and supporting circular economy</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education & Awareness</h3>
+                    <p>We work to educate our community about sustainable practices through workshops, social media, and community events. Knowledge is power when it comes to environmental protection!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Beautification Modal -->
+    <div id="beautification-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <i class="fas fa-paint-brush modal-icon"></i>
+                <h2>Beautification Projects</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-intro">Small improvements can make a big difference! Our beautification projects enhance the visual appeal of Ennis and create a more welcoming atmosphere.</p>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-palette"></i> Creative Projects</h3>
+                    <ul>
+                        <li>Painting and refurbishing public furniture</li>
+                        <li>Creating artistic displays and installations</li>
+                        <li>Seasonal decorations (Christmas, Spring, etc.)</li>
+                        <li>Murals and street art projects</li>
+                        <li>Window box and hanging basket programs</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-building"></i> Built Environment</h3>
+                    <ul>
+                        <li>Maintaining and enhancing heritage features</li>
+                        <li>Improving streetscapes</li>
+                        <li>Upgrading public spaces</li>
+                        <li>Removing graffiti and vandalism</li>
+                    </ul>
+                </div>
+
+                <div class="modal-section">
+                    <h3><i class="fas fa-users"></i> Get Creative With Us</h3>
+                    <p>Beautification projects are perfect for people who enjoy hands-on, creative work. Whether you're artistic or just willing to wield a paintbrush, there's a role for you!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
