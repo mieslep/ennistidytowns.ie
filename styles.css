@@ -120,6 +120,7 @@ body {
     background: linear-gradient(135deg, var(--secondary-color) 0%, #e89530 100%);
     border-radius: 12px;
     padding: 1.5rem 2rem;
+    margin-top: 2rem;
     margin-bottom: 3rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     animation: fadeInDown 0.8s ease;
@@ -154,29 +155,6 @@ body {
 .survey-text span {
     font-size: 1rem;
     opacity: 0.95;
-}
-
-.btn-survey {
-    background: var(--white);
-    color: var(--secondary-color);
-    font-weight: 600;
-    padding: 0.8rem 1.8rem;
-    white-space: nowrap;
-}
-
-.btn-survey:hover {
-    background: var(--bg-light);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.btn-survey i {
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-}
-
-.btn-survey:hover i {
-    transform: translateX(5px);
 }
 
 .hero-content {
@@ -265,6 +243,30 @@ body {
 .btn-large {
     padding: 18px 45px;
     font-size: 1.25rem;
+}
+
+/* Survey Banner Button */
+.btn-survey {
+    background: var(--white);
+    color: var(--secondary-color);
+    font-weight: 600;
+    padding: 0.8rem 1.8rem;
+    white-space: nowrap;
+}
+
+.btn-survey:hover {
+    background: var(--bg-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-survey i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-survey:hover i {
+    transform: translateX(5px);
 }
 
 /* Sections */
