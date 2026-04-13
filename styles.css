@@ -57,15 +57,14 @@ body {
 
 .logo {
     height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .site-title {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
+    font-weight: 700;
+    color: #ff0000;
 }
 
 .nav-menu {
