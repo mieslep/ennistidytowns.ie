@@ -809,11 +809,12 @@ body {
 
     .hero {
         min-height: auto;
-        padding: 100px 20px 60px;
+        padding: 80px 20px 40px;
     }
 
     .survey-banner {
         padding: 1.25rem 1.5rem;
+        margin-top: 3rem;
     }
 
     .survey-content {
