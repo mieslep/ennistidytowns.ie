@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ennis Sculpture Trail — a self-guided walking tour of public art in Ennis, County Clare">
+    <title>Ennis Sculpture Trail | Ennis Tidy Towns Heritage Tours</title>
+    <link rel="icon" type="image/svg+xml" href="https://images.ennistidytowns.ie/logos/SuperValu-TidyTowns-Logo-Icon-2026.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <!-- MapTour v1.5.0 -->
+    <link rel="stylesheet"
+          href="https://mieslep.github.io/maptour/maptour.css"
+          integrity="sha384-OTehc4GR9eTkq1jFcaUQLnmXoWbdbB9A8G1aliuDlmX86mwA3vbnHkfo3mbZbz7U"
+          crossorigin="anonymous">
+
+    <!-- MapTour theming to match ETT brand -->
+    <style>
+        :root {
+            --maptour-primary: #2d7d3b;
+            --maptour-accent: #f4a442;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #maptour {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="maptour"></div>
+
+    <script src="https://mieslep.github.io/maptour/maptour.js"
+            integrity="sha384-NtRiBjGZWkPymfL5RyoB3v0D3stvUAtSlC+HephVt/i7fTnPLLkcEPsXmbVZhAMJ"
+            crossorigin="anonymous"></script>
+    <script>
+        MapTour.init({
+            container: '#maptour',
+            tourUrl: './ennis-sculpture-trail.yaml',
+        });
+    </script>
+</body>
+</html>
