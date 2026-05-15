@@ -161,7 +161,20 @@ document.querySelectorAll('.modal-content').forEach(content => {
             </figure>
         `;
         document.body.appendChild(lightbox);
-        lightbox.addEventListener('click', () => closeLightbox());
+        // Close only when the backdrop itself is clicked (not the figure)
+        lightbox.addEventListener('click', (e) => {
+            if (lightbox.dataset.armed !== 'true') return;
+            if (e.target === lightbox) closeLightbox();
+        });
+        // Explicit close button
+        lightbox.querySelector('.polaroid-lightbox-close').addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeLightbox();
+        });
+        // Don't let figure clicks bubble up and close
+        lightbox.querySelector('.polaroid-lightbox-figure').addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
         return lightbox;
     };
 
@@ -172,6 +185,10 @@ document.querySelectorAll('.modal-content').forEach(content => {
         img.alt = alt || '';
         lb.classList.add('active');
         document.body.style.overflow = 'hidden';
+        // Arm the backdrop-close after a tick so the synthetic
+        // click that opened the lightbox doesn't immediately close it (iOS ghost click)
+        lb.dataset.armed = 'false';
+        setTimeout(() => { lb.dataset.armed = 'true'; }, 350);
     };
 
     const closeLightbox = () => {

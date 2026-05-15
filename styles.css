@@ -381,6 +381,7 @@ body {
     border-radius: 3px;
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.08);
     width: 58%;
+    cursor: zoom-in;
     transition: transform 0.35s ease, box-shadow 0.35s ease, z-index 0s;
 }
 
