@@ -75,11 +75,15 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections for animation
+// Observe all sections for animation, but skip ones already on screen at load
+// so the above-the-fold content appears instantly with the hero.
 document.querySelectorAll('.section').forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (alreadyVisible) return;
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     observer.observe(section);
 });
 
