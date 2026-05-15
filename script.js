@@ -140,6 +140,68 @@ document.querySelectorAll('.modal-content').forEach(content => {
     });
 });
 
+// Polaroid lightbox: click any polaroid in a pair to view a larger square version
+(() => {
+    const polaroids = document.querySelectorAll('.polaroid-pair .polaroid');
+    if (!polaroids.length) return;
+
+    let lightbox;
+    const ensureLightbox = () => {
+        if (lightbox) return lightbox;
+        lightbox = document.createElement('div');
+        lightbox.className = 'polaroid-lightbox';
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
+        lightbox.innerHTML = `
+            <button type="button" class="polaroid-lightbox-close" aria-label="Close image">
+                <i class="fas fa-times"></i>
+            </button>
+            <figure class="polaroid polaroid-lightbox-figure">
+                <img alt="">
+            </figure>
+        `;
+        document.body.appendChild(lightbox);
+        lightbox.addEventListener('click', () => closeLightbox());
+        return lightbox;
+    };
+
+    const openLightbox = (src, alt) => {
+        const lb = ensureLightbox();
+        const img = lb.querySelector('img');
+        img.src = src;
+        img.alt = alt || '';
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    polaroids.forEach(p => {
+        p.setAttribute('tabindex', '0');
+        p.setAttribute('role', 'button');
+        p.setAttribute('aria-label', 'View larger image');
+        const trigger = (e) => {
+            e.preventDefault();
+            const img = p.querySelector('img');
+            if (img) openLightbox(img.currentSrc || img.src, img.alt);
+        };
+        p.addEventListener('click', trigger);
+        p.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') trigger(e);
+        });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+})();
+
 // Contact form handling
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');

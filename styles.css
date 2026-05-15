@@ -9,6 +9,7 @@
     --primary-color: #2d7d3b;
     --primary-dark: #1e5429;
     --secondary-color: #f4a442;
+    --hero-overlay: linear-gradient(135deg, rgba(58, 62, 66, 0.28) 0%, rgba(255, 255, 255, 0.12) 100%);
     --text-dark: #333;
     --text-light: #666;
     --bg-light: #f8f9fa;
@@ -105,13 +106,16 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: var(--hero-overlay), url('https://images.ennistidytowns.ie/website/liam-hogan-ennis-pano.webp');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: var(--white);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 20px 60px;
+    padding: 132px 20px 72px;
     text-align: center;
 }
 
@@ -120,10 +124,7 @@ body {
     background: linear-gradient(135deg, var(--secondary-color) 0%, #e89530 100%);
     border-radius: 12px;
     padding: 1.5rem 2rem;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    animation: fadeInDown 0.8s ease;
+    display: none;
 }
 
 .survey-content {
@@ -160,6 +161,12 @@ body {
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    padding: 2.25rem 2rem;
+    background: linear-gradient(180deg, rgba(19, 46, 28, 0.52) 0%, rgba(19, 46, 28, 0.38) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(8px);
 }
 
 .hero h1 {
@@ -186,7 +193,7 @@ body {
 }
 
 .hero-cta-buttons {
-    display: flex;
+    display: none;
     gap: 1.5rem;
     justify-content: center;
     flex-wrap: wrap;
@@ -345,6 +352,439 @@ body {
     line-height: 1.8;
 }
 
+.about-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 3.5rem;
+}
+
+.about-intro-figure {
+    margin: 0;
+}
+
+.polaroid-pair {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    padding: 1rem 0 1.5rem;
+    max-width: 560px;
+    margin-inline: auto;
+}
+
+.polaroid-pair .polaroid {
+    background: var(--white);
+    padding: 14px 14px 48px;
+    border-radius: 3px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.08);
+    width: 58%;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, z-index 0s;
+}
+
+.polaroid-pair .polaroid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.polaroid-pair .polaroid-left {
+    transform: rotate(-7deg) translate(8px, 18px);
+    z-index: 1;
+}
+
+.polaroid-pair .polaroid-right {
+    transform: rotate(6deg) translate(-30px, -8px);
+    z-index: 2;
+}
+
+.polaroid-pair .polaroid-left:hover {
+    transform: rotate(-2deg) translate(0, 6px);
+    z-index: 3;
+}
+
+.polaroid-pair .polaroid-right:hover {
+    transform: rotate(2deg) translate(-22px, -14px);
+    z-index: 3;
+}
+
+/* Modifier: put the LEFT polaroid on top instead of the right */
+.polaroid-pair.left-on-top .polaroid-left {
+    z-index: 2;
+}
+.polaroid-pair.left-on-top .polaroid-right {
+    z-index: 1;
+}
+.polaroid-pair.left-on-top .polaroid-left:hover,
+.polaroid-pair.left-on-top .polaroid-right:hover {
+    z-index: 3;
+}
+
+.polaroid-pair .polaroid {
+    cursor: zoom-in;
+}
+
+.polaroid-pair .polaroid:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 4px;
+}
+
+/* Polaroid lightbox */
+.polaroid-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 2rem;
+    cursor: zoom-out;
+}
+
+.polaroid-lightbox.active {
+    display: flex;
+}
+
+.polaroid-lightbox-figure {
+    background: var(--white);
+    padding: 18px 18px 64px;
+    margin: 0;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    max-width: min(80vmin, 640px);
+    width: 100%;
+    cursor: default;
+}
+
+.polaroid-lightbox-figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.polaroid-lightbox-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.polaroid-lightbox-close:hover {
+    background: var(--white);
+}
+
+.about-intro-figure.polaroid {
+    background: var(--white);
+    padding: 16px 16px 56px;
+    border-radius: 4px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18), 0 2px 4px rgba(0, 0, 0, 0.08);
+    transform: rotate(-1.5deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 520px;
+    margin-inline: auto;
+}
+
+.about-intro-figure.polaroid:hover {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-intro-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.about-intro-text .lead-text {
+    text-align: left;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .about-intro-text .lead-text {
+        text-align: center;
+    }
+
+    .about-intro-figure.polaroid {
+        padding: 12px 12px 44px;
+        max-width: 360px;
+    }
+
+    .about-intro-figure img {
+        max-height: 280px;
+    }
+
+    .polaroid-pair {
+        max-width: 380px;
+        padding: 0.5rem 0 1rem;
+    }
+
+    .polaroid-pair .polaroid {
+        width: 62%;
+        padding: 10px 10px 36px;
+    }
+
+    .polaroid-pair .polaroid-left {
+        transform: rotate(-6deg) translate(4px, 12px);
+    }
+
+    .polaroid-pair .polaroid-right {
+        transform: rotate(5deg) translate(-22px, -6px);
+    }
+}
+
+/* Topic Group (sub-section of cards inside About) */
+.topic-group {
+    margin-bottom: 3rem;
+}
+
+.topic-group-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.topic-group-intro {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 720px;
+    margin: -0.5rem auto 1.75rem;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.topic-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: left;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.topic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(45, 125, 59, 0.18);
+    border-color: var(--primary-color);
+}
+
+.topic-card-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--bg-light);
+}
+
+.topic-card-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.topic-card:hover .topic-card-thumb img {
+    transform: scale(1.04);
+}
+
+.topic-card-thumb-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e9efe7 0%, #d4e4d8 100%);
+    color: var(--primary-color);
+}
+
+.topic-card-thumb-placeholder i {
+    font-size: 3rem;
+    opacity: 0.7;
+}
+
+.topic-card-title {
+    display: block;
+    padding: 1rem 1.25rem 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Modal photo header */
+.modal-photo {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+    background: var(--primary-dark);
+    max-height: 340px;
+    /* Subtle boundary so dark photos don't bleed into white modal body */
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.modal-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 340px;
+    object-fit: cover;
+}
+
+.modal-photo-title {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2.5rem 2rem 1.25rem;
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+.modal-photo-title i {
+    font-size: 1.6rem;
+    opacity: 0.95;
+}
+
+.modal-content-photo .modal-body {
+    padding-top: 2rem;
+}
+
+.modal-lede {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--text-dark);
+    margin: 0 0 1.75rem;
+}
+
+.criteria-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.85rem;
+}
+
+.criteria-grid li {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    background: #f4f8f3;
+    border-radius: 12px;
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.criteria-grid li i {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    width: 1.5rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.modal-footnote {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+
+.modal-footnote a {
+    color: var(--primary-color);
+}
+
+.modal-photo-tall {
+    max-height: 420px;
+}
+
+.modal-photo-tall img {
+    max-height: 420px;
+    object-position: center;
+}
+
+/* SDG goal tiles — always 3×2 (3 cols, 2 rows) */
+.sdg-goals {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+}
+
+.sdg-goal {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.sdg-goal img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sdg-footnote {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.topic-grid-single {
+    grid-template-columns: minmax(0, 360px);
+    justify-content: center;
+}
+
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -465,8 +905,78 @@ body {
 }
 
 .cta-button-wrapper {
+    display: none;
+}
+
+.join-cta {
+    margin-top: 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    color: var(--white);
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+}
+
+.join-cta-photo {
+    background: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.join-cta-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
+}
+
+.join-cta-content {
+    padding: 3rem 2.5rem;
     text-align: center;
-    margin-top: 3rem;
+}
+
+.join-cta h3 {
+    font-size: 2rem;
+    margin: 0 0 0.75rem;
+    color: var(--white);
+}
+
+.join-cta p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin: 0 0 1.75rem;
+    opacity: 0.95;
+}
+
+.join-cta .btn {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+    border: none;
+}
+
+.join-cta .btn:hover {
+    background: #e89530;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .join-cta {
+        grid-template-columns: 1fr;
+    }
+    .join-cta-photo img {
+        max-height: 280px;
+    }
+    .join-cta-content {
+        padding: 2rem 1.5rem;
+    }
+    .join-cta h3 {
+        font-size: 1.6rem;
+    }
 }
 
 /* Contact Form */
@@ -603,27 +1113,32 @@ body {
 
 .modal-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
+    /* Respect iOS/Android browser chrome safe areas so the button isn't hidden
+       under the URL bar on phones. */
+    top: max(12px, env(safe-area-inset-top, 12px));
+    right: max(12px, env(safe-area-inset-right, 12px));
+    background: var(--white);
     border: none;
-    font-size: 1.5rem;
-    color: var(--text-light);
+    font-size: 1.4rem;
+    color: var(--text-dark);
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.08);
     transition: var(--transition);
     z-index: 10;
 }
 
-.modal-close:hover {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+.modal-close:hover,
+.modal-close:focus-visible {
+    background-color: var(--primary-color);
+    color: var(--white);
     transform: rotate(90deg);
+    outline: none;
 }
 
 .modal-header {
@@ -809,7 +1324,9 @@ body {
 
     .hero {
         min-height: auto;
-        padding: 80px 20px 40px;
+        background-image: var(--hero-overlay), url('https://images.ennistidytowns.ie/website/liam-hogan-ennis-pano-mobile.webp');
+        background-position: center 35%;
+        padding: 112px 20px 56px;
     }
 
     .survey-banner {
@@ -841,6 +1358,11 @@ body {
 
     .hero-description {
         font-size: 1rem;
+    }
+
+    .hero-content {
+        padding: 1.75rem 1.25rem;
+        border-radius: 20px;
     }
 
     .hero-cta-buttons {
@@ -919,7 +1441,12 @@ body {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 80px 20px 50px;
+        padding: 118px 20px 52px;
+    }
+
+    .hero-content {
+        padding: 1.5rem 1rem;
+        border-radius: 18px;
     }
 
     .hero h1 {
