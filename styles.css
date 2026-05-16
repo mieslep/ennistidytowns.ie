@@ -435,6 +435,36 @@ body {
     outline-offset: 4px;
 }
 
+/* Section-break polaroids sit between topic groups / sections */
+.polaroid-pair.section-break {
+    margin-block: 2.5rem 2rem;
+}
+
+/* When a polaroid pair leads a section (sits above the h2), the section's
+   own top padding already provides spacing — zero out the top margin and
+   tighten the section's top padding so the photos don't float in a void. */
+.section > .container > .polaroid-pair:first-child {
+    margin-block: 0 1.25rem;
+}
+
+.section:has(> .container > .polaroid-pair:first-child) {
+    padding-top: 1.5rem;
+}
+
+/* Single-polaroid variant (one centered photo, gently rotated) */
+.polaroid-pair.polaroid-single {
+    max-width: 360px;
+}
+
+.polaroid-pair.polaroid-single .polaroid {
+    width: 78%;
+    transform: rotate(-3deg);
+}
+
+.polaroid-pair.polaroid-single .polaroid:hover {
+    transform: rotate(0deg) translateY(-4px);
+}
+
 /* Polaroid lightbox */
 .polaroid-lightbox {
     position: fixed;
@@ -1070,7 +1100,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* fallback */
+    height: 100dvh; /* exclude mobile browser chrome (address bar, nav bar) */
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 2000;
     overflow-y: auto;
@@ -1089,7 +1120,8 @@ body {
     border-radius: 16px;
     max-width: 700px;
     width: 100%;
-    max-height: 90vh;
+    max-height: 90vh; /* fallback */
+    max-height: 90dvh;
     overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     position: relative;
@@ -1411,7 +1443,8 @@ body {
     }
 
     .modal-content {
-        max-height: 95vh;
+        max-height: 95vh; /* fallback */
+        max-height: 95dvh;
         margin: 10px;
     }
 

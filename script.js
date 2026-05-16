@@ -60,32 +60,8 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all sections for animation, but skip ones already on screen at load
-// so the above-the-fold content appears instantly with the hero.
-document.querySelectorAll('.section').forEach(section => {
-    const rect = section.getBoundingClientRect();
-    const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
-    if (alreadyVisible) return;
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-    observer.observe(section);
-});
+// (Removed) Section fade-in on scroll. Content below the fold now renders
+// immediately with no artificial delay.
 
 // Modal functionality
 const openModal = (modalId) => {
