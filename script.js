@@ -138,6 +138,7 @@ document.querySelectorAll('.modal-content').forEach(content => {
             </button>
             <figure class="polaroid polaroid-lightbox-figure">
                 <img alt="">
+                <figcaption></figcaption>
             </figure>
         `;
         document.body.appendChild(lightbox);
@@ -158,11 +159,20 @@ document.querySelectorAll('.modal-content').forEach(content => {
         return lightbox;
     };
 
-    const openLightbox = (src, alt) => {
+    const openLightbox = (src, alt, caption) => {
         const lb = ensureLightbox();
         const img = lb.querySelector('img');
         img.src = src;
         img.alt = alt || '';
+        const fig = lb.querySelector('.polaroid-lightbox-figure');
+        const cap = lb.querySelector('figcaption');
+        if (caption) {
+            cap.textContent = caption;
+            fig.classList.add('polaroid-captioned');
+        } else {
+            cap.textContent = '';
+            fig.classList.remove('polaroid-captioned');
+        }
         lb.classList.add('active');
         document.body.style.overflow = 'hidden';
         // Arm the backdrop-close after a tick so the synthetic
@@ -184,7 +194,9 @@ document.querySelectorAll('.modal-content').forEach(content => {
         const trigger = (e) => {
             e.preventDefault();
             const img = p.querySelector('img');
-            if (img) openLightbox(img.currentSrc || img.src, img.alt);
+            const captionEl = p.querySelector('figcaption');
+            const caption = captionEl ? captionEl.textContent.trim() : '';
+            if (img) openLightbox(img.currentSrc || img.src, img.alt, caption);
         };
         p.addEventListener('click', trigger);
         p.addEventListener('keydown', (e) => {

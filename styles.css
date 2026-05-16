@@ -435,6 +435,49 @@ body {
     outline-offset: 4px;
 }
 
+/* Handwritten caption inside a polaroid (sits in the bottom white border).
+   Works for both in-page polaroids and the lightbox figure. */
+.polaroid.polaroid-captioned {
+    position: relative;
+}
+
+.polaroid-pair .polaroid.polaroid-captioned {
+    padding-bottom: 56px;
+}
+
+/* Two-line caption variant: more room, smaller font so it doesn't overlap the photo. */
+.polaroid-pair .polaroid.polaroid-captioned.polaroid-captioned-2 {
+    padding-bottom: 72px;
+}
+
+.polaroid.polaroid-captioned figcaption {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 10px;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    color: #2a2a2a;
+    pointer-events: none;
+}
+
+.polaroid-lightbox-figure.polaroid-captioned figcaption {
+    bottom: 16px;
+    font-size: 2rem;
+}
+
+.polaroid.polaroid-captioned-2 figcaption {
+    font-size: 1.2rem;
+    line-height: 1.15;
+}
+
+.polaroid-lightbox-figure.polaroid-captioned.polaroid-captioned-2 figcaption {
+    font-size: 1.6rem;
+}
+
 /* Section-break polaroids sit between topic groups / sections */
 .polaroid-pair.section-break {
     margin-block: 2.5rem 2rem;
