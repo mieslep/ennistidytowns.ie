@@ -1,4 +1,68 @@
 // Mobile Navigation Toggle
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeStorageKey = 'ennistidytowns-theme';
+const themeMediaQuery = typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-color-scheme: dark)')
+    : null;
+
+const getSystemTheme = () => (themeMediaQuery && themeMediaQuery.matches ? 'dark' : 'light');
+
+const getPreferredTheme = () => {
+    if (themeMediaQuery) {
+        return getSystemTheme();
+    }
+
+    return localStorage.getItem(themeStorageKey) || 'light';
+};
+
+const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+
+    if (!themeToggle) return;
+
+    const isDark = theme === 'dark';
+    const icon = themeToggle.querySelector('.theme-toggle-icon');
+    const label = themeToggle.querySelector('.theme-toggle-label');
+    const nextThemeLabel = isDark ? 'Light mode' : 'Dark mode';
+
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+    themeToggle.setAttribute('title', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+
+    if (icon) {
+        icon.classList.toggle('fa-moon', !isDark);
+        icon.classList.toggle('fa-sun', isDark);
+    }
+
+    if (label) {
+        label.textContent = nextThemeLabel;
+    }
+};
+
+applyTheme(root.dataset.theme || getPreferredTheme());
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(themeStorageKey, nextTheme);
+        applyTheme(nextTheme);
+    });
+}
+
+const handleSystemThemeChange = () => {
+    if (themeMediaQuery) {
+        applyTheme(getSystemTheme());
+    }
+};
+
+if (themeMediaQuery && typeof themeMediaQuery.addEventListener === 'function') {
+    themeMediaQuery.addEventListener('change', handleSystemThemeChange);
+} else if (themeMediaQuery && typeof themeMediaQuery.addListener === 'function') {
+    themeMediaQuery.addListener(handleSystemThemeChange);
+}
+
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 
@@ -52,9 +116,9 @@ window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        navbar.style.boxShadow = 'var(--nav-shadow-strong)';
     } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        navbar.style.boxShadow = 'var(--nav-shadow)';
     }
     
     lastScroll = currentScroll;
